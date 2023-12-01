@@ -7,6 +7,7 @@ class NicknameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           const SizedBox(height: 125),
@@ -47,10 +48,10 @@ class NicknameScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500),
                 enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.green),
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(25),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(25),
                   borderSide: const BorderSide(
                     color: Colors.green,
                     width: 1.9,
@@ -59,7 +60,6 @@ class NicknameScreen extends StatelessWidget {
               ),
             ),
           ),
-
           const SizedBox(height: 99),
           //button
           const ButtonWithoutIcon()

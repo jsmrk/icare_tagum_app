@@ -8,11 +8,11 @@ class ButtonWithoutIcon extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(25),
         child: Container(
-          height: 49,
+          height: 37,
           width: 151,
-          padding: const EdgeInsets.all(15),
+          alignment: Alignment.center,
           color: Colors.green,
           child: const Text(
             'Continue',
