@@ -9,19 +9,26 @@ class NicknameScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          const SizedBox(height: 125),
           //logo
           Image.asset('lib/assets/images/logo.png', scale: 12.5),
+          const SizedBox(height: 5),
           //Text
           Text(
             'Once a Tagumenyo always a Tagumenyo',
-            style: Theme.of(context).textTheme.titleMedium,
+            style: Theme.of(context).textTheme.titleSmall,
           ),
+          const SizedBox(height: 99),
           //question
-          Text(
-            'What should we call you?',
-            style: Theme.of(context).textTheme.titleMedium,
-            textAlign: TextAlign.left,
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 37),
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'What should we call you?',
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
           ),
+          const SizedBox(height: 19),
           //textbox
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 37),
@@ -52,6 +59,8 @@ class NicknameScreen extends StatelessWidget {
               ),
             ),
           ),
+
+          const SizedBox(height: 99),
           //button
           const ButtonWithoutIcon()
         ],
