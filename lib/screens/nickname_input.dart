@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icare_tagum_app/widgets/button_no_icon.dart';
 
 class NicknameScreen extends StatelessWidget {
   const NicknameScreen({super.key});
@@ -29,7 +30,7 @@ class NicknameScreen extends StatelessWidget {
                 contentPadding: const EdgeInsets.all(15),
                 prefixIcon: const Icon(
                   Icons.person_outline_outlined,
-                  color: Colors.green,
+                  color: Colors.grey,
                   size: 27,
                 ),
                 hintText: 'Nickname',
@@ -52,26 +53,7 @@ class NicknameScreen extends StatelessWidget {
             ),
           ),
           //button
-          GestureDetector(
-            onTap: () {},
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Container(
-                width: 151,
-                padding: const EdgeInsets.all(15),
-                color: Colors.green,
-                child: const Text(
-                  'Continue',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ),
-          )
+          const ButtonWithoutIcon()
         ],
       ),
     );
