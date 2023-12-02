@@ -7,9 +7,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: GradientAppBarWithProfile(),
       body: Stack(
         children: <Widget>[
+          GradientAppBarWithProfile(),
           Text("data"),
         ],
       ),
