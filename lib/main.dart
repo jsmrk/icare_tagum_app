@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icare_tagum_app/screens/nickname_input.dart';
 import 'package:icare_tagum_app/screens/splash_screen.dart';
+import 'package:icare_tagum_app/screens/welcom_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: const NicknameScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }
