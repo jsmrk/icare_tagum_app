@@ -104,27 +104,25 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          Stack(children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(25),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2.0,
-                    blurRadius: 5.0,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              margin: const EdgeInsets.symmetric(
-                vertical: 1,
-                horizontal: 25,
-              ),
-              child: Text('asdasd'),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2.0,
+                  blurRadius: 5.0,
+                  offset: const Offset(0, 3),
+                ),
+              ],
             ),
-          ]),
+            margin: const EdgeInsets.symmetric(
+              vertical: 1,
+              horizontal: 43,
+            ),
+            child: Text('asdasd'),
+          ),
         ],
       ),
     );
