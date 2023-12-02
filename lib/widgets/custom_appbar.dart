@@ -6,7 +6,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 325,
+      height: 301,
       child: ClipRRect(
         borderRadius: const BorderRadius.only(
           bottomRight: Radius.circular(25),

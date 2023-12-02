@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icare_tagum_app/widgets/button_no_icon.dart';
 import 'package:icare_tagum_app/widgets/button_with_icon.dart';
 import 'package:icare_tagum_app/widgets/custom_appbar.dart';
+import 'package:icare_tagum_app/widgets/home_latest_news.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = '/home-screen';
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               const CustomAppBar(),
               const Positioned(
-                top: 101,
+                top: 85,
                 left: 61,
                 child: Text(
                   "iCare Tagum",
@@ -28,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const Positioned(
-                top: 175,
+                top: 155,
                 left: 121,
                 child: Text(
                   "TAGUM - TAGUMPAY",
@@ -53,7 +54,11 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 margin: const EdgeInsets.only(
-                    top: 231, bottom: 21, left: 17, right: 17),
+                  top: 201,
+                  bottom: 21,
+                  left: 17,
+                  right: 17,
+                ),
                 height: 179,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -104,25 +109,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2.0,
-                  blurRadius: 5.0,
-                  offset: const Offset(0, 3),
-                ),
-              ],
-            ),
-            margin: const EdgeInsets.symmetric(
-              vertical: 1,
-              horizontal: 43,
-            ),
-            child: Text('asdasd'),
-          ),
+          const HomeLatestNews(),
         ],
       ),
     );
