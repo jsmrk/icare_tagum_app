@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class GradientAppBarWithProfile extends StatelessWidget {
-  const GradientAppBarWithProfile({super.key});
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +19,24 @@ class GradientAppBarWithProfile extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Color(0xff008348), Color(0xff319F43)],
+                  stops: [0.1, 0.7],
+                  colors: [
+                    Color(0xff008348),
+                    Color(0xff319F43),
+                  ],
                 ),
               ),
             ),
-            const SafeArea(
-              child: Row(
+            Container(
+              margin: const EdgeInsets.symmetric(
+                vertical: 35,
+                horizontal: 11,
+              ),
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
-                      SizedBox(width: 11),
                       CircleAvatar(
                         backgroundImage: NetworkImage(''),
                         radius: 20.0,
@@ -37,7 +44,10 @@ class GradientAppBarWithProfile extends StatelessWidget {
                       SizedBox(width: 15), // Add space between avatar and text
                       Text(
                         'Hi, Jess Mark',
-                        style: TextStyle(color: Colors.white, fontSize: 16.0),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                        ),
                       ),
                     ],
                   ),

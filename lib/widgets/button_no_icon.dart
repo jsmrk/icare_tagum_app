@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ButtonWithoutIcon extends StatelessWidget {
-  const ButtonWithoutIcon({super.key});
+  final void Function() navigateTo;
+
+  const ButtonWithoutIcon({super.key, required this.navigateTo});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: navigateTo,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(25),
         child: Container(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:icare_tagum_app/screens/welcom_screen.dart';
 import 'package:icare_tagum_app/widgets/button_no_icon.dart';
 
 class NicknameScreen extends StatelessWidget {
+  static const routeName = '/nickname-screen';
   const NicknameScreen({super.key});
 
   @override
@@ -62,7 +64,10 @@ class NicknameScreen extends StatelessWidget {
           ),
           const SizedBox(height: 99),
           //button
-          const ButtonWithoutIcon()
+          ButtonWithoutIcon(
+            navigateTo: () => Navigator.pushReplacementNamed(
+                context, WelcomeScreen.routeName),
+          )
         ],
       ),
     );

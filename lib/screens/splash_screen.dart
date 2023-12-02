@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:icare_tagum_app/screens/nickname_input.dart';
 
 class SplashScreen extends StatelessWidget {
+  static const routeName = '/splash-screen';
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => {NicknameScreen()},
+      onTap: () async {
+        await Navigator.pushReplacementNamed(context, NicknameScreen.routeName);
+      },
       child: Scaffold(
         body: Container(
           alignment: Alignment.center,

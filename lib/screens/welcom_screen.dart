@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:icare_tagum_app/screens/home_screen.dart';
+import 'package:icare_tagum_app/widgets/btm_navbar.dart';
 
 import '../widgets/button_no_icon.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  static const routeName = '/welcome-screen';
   const WelcomeScreen({super.key});
 
   @override
@@ -48,7 +51,10 @@ class WelcomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 65),
             //button
-            const ButtonWithoutIcon()
+            ButtonWithoutIcon(
+              navigateTo: () =>
+                  Navigator.pushReplacementNamed(context, BtmNavBar.routeName),
+            ),
           ],
         ),
       ),
