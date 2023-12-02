@@ -13,10 +13,6 @@ class BtmNavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<BtmNavBar> {
-  //Curved Bard
-  // int _page = 0;
-  // GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
-
   int _selectedIndex = 0;
 
   final List _views = [
@@ -31,7 +27,6 @@ class _NavBarState extends State<BtmNavBar> {
       body: _views[_selectedIndex],
       bottomNavigationBar: GNav(
         backgroundColor: const Color(0xff319F43),
-        hoverColor: Colors.white,
         gap: 7,
         activeColor: Colors.white,
         textStyle: const TextStyle(
@@ -45,25 +40,18 @@ class _NavBarState extends State<BtmNavBar> {
           vertical: 13,
         ),
         duration: const Duration(milliseconds: 400),
-        tabBackgroundColor: const Color(0xff319F43),
         color: Colors.white,
         tabs: const [
           GButton(
-            // padding: EdgeInsets.symmetric(vertical: 1, horizontal: 25),
             icon: Icons.home_outlined,
-            // iconSize: 27,
             text: 'Home',
           ),
           GButton(
-            // padding: EdgeInsets.symmetric(vertical: 1, horizontal: 25),
-            icon: Icons.create_rounded,
-            // iconSize: 27,
+            icon: Icons.create_outlined,
             text: 'Write',
           ),
           GButton(
-            // padding: EdgeInsets.symmetric(vertical: 1, horizontal: 25),
-            icon: Icons.settings_rounded,
-            // iconSize: 27,
+            icon: Icons.settings_outlined,
             text: 'Settings',
           ),
         ],
