@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:icare_tagum_app/views/write_screen.dart';
-import 'package:icare_tagum_app/widgets/btm_navbar.dart';
-import 'package:icare_tagum_app/widgets/button_no_icon.dart';
 import 'package:icare_tagum_app/widgets/button_with_icon.dart';
 import 'package:icare_tagum_app/widgets/custom_appbar.dart';
 import 'package:icare_tagum_app/widgets/home_latest_news.dart';
-import 'package:icare_tagum_app/widgets/write_sheet.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = '/home-screen';

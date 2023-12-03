@@ -56,37 +56,98 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        const IconButton(
-          onPressed: null,
-          icon: Icon(Icons.add_photo_alternate),
-          iconSize: 75,
-        ),
-        textFieldTitle('Urgency: '),
-        DropdownButton(items: const [
-          DropdownMenuItem(
-            value: 'low',
-            child: Text('Low'),
+    return Container(
+      padding: const EdgeInsets.all(19),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const IconButton(
+            onPressed: null,
+            icon: Icon(Icons.add_photo_alternate),
+            iconSize: 115,
           ),
-          DropdownMenuItem(
-            value: 'high',
-            child: Text('High'),
+          const SizedBox(height: 15),
+          Row(
+            children: [
+              textFieldTitle('Urgency: '),
+              const SizedBox(width: 25),
+              Container(
+                width: 150,
+                child: DropdownButton(
+                  style: const TextStyle(
+                    fontSize: 19,
+                    color: Colors.black,
+                  ),
+                  items: const [
+                    DropdownMenuItem(
+                      value: 'low',
+                      child: Text('Low'),
+                    ),
+                    DropdownMenuItem(
+                      value: 'high',
+                      child: Text('High'),
+                    ),
+                  ],
+                  value: _dropdownValue,
+                  onChanged: urgencyDropdown,
+                ),
+              ),
+            ],
           ),
-        ], value: _dropdownValue, onChanged: urgencyDropdown),
-        textFieldTitle('Description: '),
-        textField('Report Description'),
-        textFieldTitle('Location: '),
-        textField('Report Description'),
-        Row(
-          children: [
-            ButtonWithoutIcon(
-              navigateTo: () => Navigator.pop(context),
+          const SizedBox(height: 15),
+          textFieldTitle('Description: '),
+          const SizedBox(
+            height: 7,
+          ),
+          TextFormField(
+            maxLines: 7,
+            keyboardType: TextInputType.multiline,
+            decoration: const InputDecoration(
+              hintText: 'Write Report Description',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(15),
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(15),
+                ),
+                borderSide: BorderSide(
+                    color: Colors.grey,
+                    width: 3.0), // Thicker border when focused
+              ),
             ),
-          ],
-        ),
-      ],
+          ),
+          const SizedBox(height: 15),
+          textFieldTitle('Location: '),
+          const SizedBox(
+            height: 7,
+          ),
+          textField('Type Location'),
+          const SizedBox(height: 25),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ButtonWithoutIcon(
+                navigateTo: () => Navigator.pop(context),
+                bgColor: Colors.grey,
+                buttonText: 'Cancel',
+                curvedSize: 15,
+                txtColor: Colors.white,
+              ),
+              ButtonWithoutIcon(
+                navigateTo: () => Navigator.pop(context),
+                bgColor: Colors.green,
+                buttonText: 'Confirm',
+                curvedSize: 15,
+                txtColor: Colors.white,
+              ),
+            ],
+          ),
+          const SizedBox(height: 15),
+        ],
+      ),
     );
   }
 }

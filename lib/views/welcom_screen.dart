@@ -52,9 +52,12 @@ class WelcomeScreen extends StatelessWidget {
             const SizedBox(height: 65),
             //button
             ButtonWithoutIcon(
-              navigateTo: () =>
-                  Navigator.pushReplacementNamed(context, BtmNavBar.routeName),
-            ),
+                navigateTo: () => Navigator.pushReplacementNamed(
+                    context, BtmNavBar.routeName),
+                bgColor: Colors.green,
+                buttonText: 'Continue',
+                curvedSize: 25,
+                txtColor: Colors.white),
           ],
         ),
       ),

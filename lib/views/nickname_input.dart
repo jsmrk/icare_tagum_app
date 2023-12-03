@@ -65,9 +65,12 @@ class NicknameScreen extends StatelessWidget {
           const SizedBox(height: 99),
           //button
           ButtonWithoutIcon(
-            navigateTo: () => Navigator.pushReplacementNamed(
-                context, WelcomeScreen.routeName),
-          )
+              navigateTo: () => Navigator.pushReplacementNamed(
+                  context, WelcomeScreen.routeName),
+              bgColor: Colors.green,
+              buttonText: 'Continue',
+              curvedSize: 25,
+              txtColor: Colors.white),
         ],
       ),
     );
