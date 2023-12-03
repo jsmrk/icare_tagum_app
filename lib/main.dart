@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:icare_tagum_app/screens/home_screen.dart';
-import 'package:icare_tagum_app/screens/nickname_input.dart';
-import 'package:icare_tagum_app/screens/splash_screen.dart';
-import 'package:icare_tagum_app/screens/welcom_screen.dart';
+import 'package:icare_tagum_app/views/home_screen.dart';
+import 'package:icare_tagum_app/views/nickname_input.dart';
+import 'package:icare_tagum_app/views/splash_screen.dart';
+import 'package:icare_tagum_app/views/welcom_screen.dart';
+import 'package:icare_tagum_app/views/write_screen.dart';
 import 'package:icare_tagum_app/widgets/btm_navbar.dart';
 
 void main() {
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         WelcomeScreen.routeName: (context) => const WelcomeScreen(),
         BtmNavBar.routeName: (context) => const BtmNavBar(),
         HomeScreen.routeName: (context) => const HomeScreen(),
+        WriteScreen.routeName: (context) => const WriteScreen(),
       },
     );
   }

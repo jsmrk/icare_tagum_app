@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icare_tagum_app/screens/home_screen.dart';
+import 'package:icare_tagum_app/views/home_screen.dart';
 import 'package:icare_tagum_app/widgets/btm_navbar.dart';
 
 import '../widgets/button_no_icon.dart';

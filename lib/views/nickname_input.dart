@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icare_tagum_app/screens/welcom_screen.dart';
+import 'package:icare_tagum_app/views/welcom_screen.dart';
 import 'package:icare_tagum_app/widgets/button_no_icon.dart';
 
 class NicknameScreen extends StatelessWidget {

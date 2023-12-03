@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:icare_tagum_app/widgets/custom_appbar.dart';
 import 'package:icare_tagum_app/widgets/user_concerns.dart';
+import 'package:icare_tagum_app/widgets/write_sheet.dart';
 
 import '../widgets/button_with_icon.dart';
 
 class WriteScreen extends StatelessWidget {
+  static const routeName = '/write-screen';
   const WriteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
         body: Column(
       children: [
         Stack(children: [
-          CustomAppBar(),
-          Positioned(
+          const CustomAppBar(),
+          const Positioned(
             top: 105,
             left: 17,
             child: Text(
@@ -31,12 +33,24 @@ class WriteScreen extends StatelessWidget {
             left: 71,
             child: ButtonWithIcon(
               bgColor: Colors.white,
-              iconColor: Color(0xff319F43),
-              txtColor: Color(0xff319F43),
+              iconColor: const Color(0xff319F43),
+              txtColor: const Color(0xff319F43),
+              onTapFunction: () => showModalBottomSheet(
+                backgroundColor: Colors.white,
+                enableDrag: true,
+                isScrollControlled: true,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(19),
+                  ),
+                ),
+                context: context,
+                builder: (context) => const WriteConcernSheet(),
+              ),
             ),
           ),
         ]),
-        UserConcerns(),
+        const UserConcerns(),
       ],
     ));
   }

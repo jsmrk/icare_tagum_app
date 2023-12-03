@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icare_tagum_app/screens/nickname_input.dart';
+import 'package:icare_tagum_app/views/nickname_input.dart';
 
 class SplashScreen extends StatelessWidget {
   static const routeName = '/splash-screen';

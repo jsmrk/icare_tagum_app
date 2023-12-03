@@ -5,17 +5,19 @@ class ButtonWithIcon extends StatelessWidget {
   final Color bgColor;
   final Color txtColor;
   final Color iconColor;
+  final void Function() onTapFunction;
 
   const ButtonWithIcon(
       {super.key,
       required this.bgColor,
       required this.txtColor,
-      required this.iconColor});
+      required this.iconColor,
+      required this.onTapFunction});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: null,
+      onTap: onTapFunction,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(25),
         child: Container(
