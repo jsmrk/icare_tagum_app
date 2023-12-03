@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icare_tagum_app/widgets/custom_appbar.dart';
+import 'package:icare_tagum_app/widgets/user_concerns.dart';
 
 import '../widgets/button_with_icon.dart';
 
@@ -27,7 +28,7 @@ class WriteScreen extends StatelessWidget {
           ),
           Positioned(
             top: 225,
-            left: 75,
+            left: 71,
             child: ButtonWithIcon(
               bgColor: Colors.white,
               iconColor: Color(0xff319F43),
@@ -35,6 +36,7 @@ class WriteScreen extends StatelessWidget {
             ),
           ),
         ]),
+        UserConcerns(),
       ],
     ));
   }
