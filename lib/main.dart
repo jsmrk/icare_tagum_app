@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Inter',
         textTheme: ThemeData.light().textTheme.copyWith(
               titleLarge: const TextStyle(
-                fontWeight: FontWeight.w900,
-                fontSize: 17,
+                fontWeight: FontWeight.w700,
+                fontSize: 21,
               ),
               titleMedium:
                   const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
