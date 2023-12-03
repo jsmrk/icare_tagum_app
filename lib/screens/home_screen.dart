@@ -60,11 +60,11 @@ class HomeScreen extends StatelessWidget {
                   right: 17,
                 ),
                 height: 179,
-                child: Column(
+                child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Row(
@@ -100,10 +100,14 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 21,
                     ),
-                    Positioned(child: ButtonWithIcon()),
+                    ButtonWithIcon(
+                      bgColor: Color(0xff319F43),
+                      iconColor: Colors.white,
+                      txtColor: Colors.white,
+                    ),
                   ],
                 ),
               ),

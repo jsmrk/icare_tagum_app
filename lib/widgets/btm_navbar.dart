@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:icare_tagum_app/screens/home_screen.dart';
 import 'package:icare_tagum_app/screens/nickname_input.dart';
-import 'package:icare_tagum_app/screens/splash_screen.dart';
+import 'package:icare_tagum_app/screens/write_screen.dart';
 
 class BtmNavBar extends StatefulWidget {
   static const routeName = '/btmNavbar-screen';
@@ -17,7 +17,7 @@ class _NavBarState extends State<BtmNavBar> {
 
   final List _views = [
     const HomeScreen(),
-    const SplashScreen(),
+    const WriteScreen(),
     const NicknameScreen(),
   ];
 

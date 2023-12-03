@@ -19,10 +19,10 @@ class SplashScreen extends StatelessWidget {
             children: [
               Image.asset('lib/assets/images/logo.png', scale: 12.5),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5),
+                padding: const EdgeInsets.symmetric(vertical: 11),
                 child: Text(
                   'Making Tagum a better place \n for everyone.',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleMedium,
                   textAlign: TextAlign.center,
                 ),
               ),
