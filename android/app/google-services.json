@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "95542719265",
+    "firebase_url": "https://i-care-tagum-app-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "i-care-tagum-app",
+    "storage_bucket": "i-care-tagum-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95542719265:android:8d53a940b1c71c48ad4460",
+        "android_client_info": {
+          "package_name": "com.example.icare_tagum_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-pZ2QAR-IsAvfFurAs8o4dP-sUsJI6DE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDZqAQf-pUKh0Vn4CUYTVl7WurD1P5U89o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>95542719265</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.icareTagumApp.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>i-care-tagum-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>i-care-tagum-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:95542719265:ios:34d5b911e4b71e89ad4460</string>
+	<key>DATABASE_URL</key>
+	<string>https://i-care-tagum-app-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>

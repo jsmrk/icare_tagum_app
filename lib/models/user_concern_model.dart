@@ -5,12 +5,19 @@ enum Urgency {
   Low,
 }
 
+enum ConcernStatus {
+  Pending,
+  Viewed,
+}
+
 class UserConcerns {
   final String id;
   final String title;
   final String description;
   final String imagePath;
   final Urgency urgency;
+  final DateTime dateTime;
+  final ConcernStatus concernStatus;
 
   const UserConcerns({
     required this.id,
@@ -18,5 +25,7 @@ class UserConcerns {
     required this.description,
     required this.imagePath,
     required this.urgency,
+    required this.dateTime,
+    required this.concernStatus,
   });
 }
