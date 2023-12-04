@@ -10,15 +10,15 @@ class UserConcerns extends StatelessWidget {
         borderRadius: BorderRadius.circular(25),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withOpacity(0.3),
             blurRadius: 5.0,
-            offset: const Offset(1, 1),
+            offset: const Offset(3, 3),
           ),
         ],
       ),
       margin: const EdgeInsets.symmetric(
-        vertical: 1,
-        horizontal: 19,
+        vertical: 5,
+        horizontal: 15,
       ),
       child: child,
     );
@@ -26,41 +26,56 @@ class UserConcerns extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String concernDescription =
+        'Naunsa naman ning tagum mura namag dubai, aksyoni intawn ni ninyo City Government kay abog jud kaayo muagi sa Highway.';
+
     return builContainer(
-      Column(
-        children: [
-          Text(
-            'Your Concerns',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          builContainer(
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      'Your Concerns',
+      Container(
+        height: 105,
+        width: double.infinity,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: EdgeInsets.all(15),
+              width: 205,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Tagum Murag Dubai',
                       style: Theme.of(context).textTheme.titleLarge,
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.left,
                     ),
-                    Text('description')
-                  ],
-                ),
-                ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(25),
-                      bottomRight: Radius.circular(25)),
-                  child: Image.asset(
-                    'lib/assets/images/Tagum-Flyover.jpeg',
-                    fit: BoxFit.cover,
-                    height: 101,
-                    width: 105,
                   ),
-                ),
-              ],
+                  Text(
+                    concernDescription,
+                    softWrap: true,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(25),
+                bottomRight: Radius.circular(25),
+              ),
+              child: Image.asset(
+                'lib/assets/images/Tagum-Flyover.jpeg',
+                fit: BoxFit.cover,
+                height: 105,
+                width: 105,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
