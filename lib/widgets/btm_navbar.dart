@@ -51,8 +51,8 @@ class _NavBarState extends State<BtmNavBar> {
             text: 'Write',
           ),
           GButton(
-            icon: Icons.settings_outlined,
-            text: 'Settings',
+            icon: Icons.feed_outlined,
+            text: 'Updates',
           ),
         ],
         selectedIndex: _selectedIndex,
