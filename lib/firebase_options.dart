@@ -14,6 +14,7 @@ import 'package:flutter/foundation.dart'
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
 /// ```
+
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -49,7 +50,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '95542719265',
     projectId: 'i-care-tagum-app',
     authDomain: 'i-care-tagum-app.firebaseapp.com',
-    databaseURL: 'https://i-care-tagum-app-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://i-care-tagum-app-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'i-care-tagum-app.appspot.com',
     measurementId: 'G-WVRDDRMSNX',
   );
@@ -59,7 +61,8 @@ class DefaultFirebaseOptions {
     appId: '1:95542719265:android:8d53a940b1c71c48ad4460',
     messagingSenderId: '95542719265',
     projectId: 'i-care-tagum-app',
-    databaseURL: 'https://i-care-tagum-app-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://i-care-tagum-app-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'i-care-tagum-app.appspot.com',
   );
 
@@ -68,7 +71,8 @@ class DefaultFirebaseOptions {
     appId: '1:95542719265:ios:109529cd45e66584ad4460',
     messagingSenderId: '95542719265',
     projectId: 'i-care-tagum-app',
-    databaseURL: 'https://i-care-tagum-app-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://i-care-tagum-app-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'i-care-tagum-app.appspot.com',
     iosBundleId: 'com.example.icareTagumApp',
   );
@@ -78,7 +82,8 @@ class DefaultFirebaseOptions {
     appId: '1:95542719265:ios:34d5b911e4b71e89ad4460',
     messagingSenderId: '95542719265',
     projectId: 'i-care-tagum-app',
-    databaseURL: 'https://i-care-tagum-app-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://i-care-tagum-app-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'i-care-tagum-app.appspot.com',
     iosBundleId: 'com.example.icareTagumApp.RunnerTests',
   );
