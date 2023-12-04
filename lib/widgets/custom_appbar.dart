@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  final double appbarHeight;
+  const CustomAppBar({required this.appbarHeight, super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 301,
+      height: appbarHeight,
       child: ClipRRect(
         borderRadius: const BorderRadius.only(
           bottomRight: Radius.circular(25),

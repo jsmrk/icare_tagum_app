@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icare_tagum_app/widgets/custom_appbar.dart';
-import 'package:icare_tagum_app/widgets/user_concerns.dart';
+import 'package:icare_tagum_app/widgets/concerns_container.dart';
 import 'package:icare_tagum_app/widgets/write_sheet.dart';
 
 import '../widgets/button_with_icon.dart';
@@ -15,7 +15,7 @@ class WriteScreen extends StatelessWidget {
       body: Column(
         children: [
           Stack(children: [
-            const CustomAppBar(),
+            const CustomAppBar(appbarHeight: 301),
             const Positioned(
               top: 105,
               left: 17,
@@ -77,7 +77,7 @@ class WriteScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   child: SingleChildScrollView(
                     child: Column(
                       children: [

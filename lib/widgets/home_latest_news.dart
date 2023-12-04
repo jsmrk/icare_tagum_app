@@ -18,7 +18,6 @@ class HomeLatestNews extends StatelessWidget {
         ],
       ),
       margin: const EdgeInsets.symmetric(
-        vertical: 1,
         horizontal: 19,
       ),
       child: Column(
@@ -64,7 +63,7 @@ class HomeLatestNews extends StatelessWidget {
               top: 15,
             ),
             child: Text(
-              'The Flyover A.K.A Dubai Tagum',
+              'The Flyover A.K.A Dubai Tagum is Done',
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),

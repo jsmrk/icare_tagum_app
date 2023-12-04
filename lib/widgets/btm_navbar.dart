@@ -4,6 +4,8 @@ import 'package:icare_tagum_app/views/home_screen.dart';
 import 'package:icare_tagum_app/views/nickname_input.dart';
 import 'package:icare_tagum_app/views/write_screen.dart';
 
+import '../views/updates_screen.dart';
+
 class BtmNavBar extends StatefulWidget {
   static const routeName = '/btmNavbar-screen';
   const BtmNavBar({super.key});
@@ -18,7 +20,7 @@ class _NavBarState extends State<BtmNavBar> {
   final List _views = [
     const HomeScreen(),
     const WriteScreen(),
-    const NicknameScreen(),
+    const UpdatesScreen(),
   ];
 
   @override

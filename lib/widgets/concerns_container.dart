@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class UserConcerns extends StatelessWidget {
-  const UserConcerns({super.key});
+  UserConcerns({super.key});
 
   Widget builContainer(Widget child) {
     return Container(
