@@ -33,7 +33,7 @@ class ButtonWithIcon extends StatelessWidget {
                 color: iconColor,
                 size: 21,
               ),
-              const SizedBox(width: 21),
+              const SizedBox(width: 15),
               Text(
                 'Write Yours Now',
                 textAlign: TextAlign.center,
