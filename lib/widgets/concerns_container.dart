@@ -40,7 +40,7 @@ class UserConcerns extends StatelessWidget {
             children: [
               Container(
                 padding: const EdgeInsets.all(15),
-                width: 205,
+                width: 245,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -60,6 +60,7 @@ class UserConcerns extends StatelessWidget {
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
+                      style: const TextStyle(fontFamily: 'Inter', fontSize: 13),
                     ),
                   ],
                 ),

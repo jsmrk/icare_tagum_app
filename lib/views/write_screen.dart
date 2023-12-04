@@ -15,9 +15,9 @@ class WriteScreen extends StatelessWidget {
       body: Column(
         children: [
           Stack(children: [
-            const CustomAppBar(appbarHeight: 301),
+            const CustomAppBar(appbarHeight: 275),
             const Positioned(
-              top: 105,
+              top: 95,
               left: 17,
               child: Text(
                 "Write Your Concerns\nWithout Worries",
@@ -29,7 +29,7 @@ class WriteScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 225,
+              top: 205,
               left: 71,
               child: ButtonWithIcon(
                 bgColor: Colors.white,
@@ -51,10 +51,11 @@ class WriteScreen extends StatelessWidget {
             ),
           ]),
           Container(
-            height: 425,
+            height: 465,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(25), topRight: Radius.circular(25)),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.5),
@@ -63,10 +64,7 @@ class WriteScreen extends StatelessWidget {
                 ),
               ],
             ),
-            margin: const EdgeInsets.symmetric(
-              vertical: 15,
-              horizontal: 15,
-            ),
+            margin: const EdgeInsets.only(top: 9, left: 9, right: 9),
             child: Column(
               children: [
                 Container(

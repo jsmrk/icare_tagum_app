@@ -47,7 +47,7 @@ class UpdatesScreen extends StatelessWidget {
                     UpdatesContainer(),
                     UpdatesContainer(),
                     SizedBox(
-                      height: 15,
+                      height: 7,
                     )
                   ],
                 ),
