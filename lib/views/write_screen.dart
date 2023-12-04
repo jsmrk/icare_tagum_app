@@ -70,13 +70,14 @@ class WriteScreen extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.all(15),
+                  padding: const EdgeInsets.only(top: 9, left: 15),
                   alignment: Alignment.topLeft,
                   child: Text(
                     'Your Concerns',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
+                const Divider(height: 15),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
@@ -87,6 +88,9 @@ class WriteScreen extends StatelessWidget {
                         UserConcerns(),
                         UserConcerns(),
                         UserConcerns(),
+                        UserConcerns(),
+                        UserConcerns(),
+                        const SizedBox(height: 5)
                       ],
                     ),
                   ),

@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                               '11',
                               style: TextStyle(
                                 fontFamily: 'Inter',
-                                fontSize: 51,
+                                fontSize: 55,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),

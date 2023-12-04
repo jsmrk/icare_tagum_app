@@ -6,11 +6,11 @@ class UpdatesContainer extends StatelessWidget {
   Widget builContainer(Widget child) {
     return Container(
       height: 155,
-      width: 355,
-      margin: const EdgeInsets.only(top: 13),
+      width: 371,
+      margin: const EdgeInsets.only(top: 11),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -26,7 +26,7 @@ class UpdatesContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String concernDescription =
-        '     The long awaited flyover is now complete as the longest flyover in the mindanao. The Tagumeños is as excited as ever! The Dubai in the mindanao will finally be over.';
+        '   The long awaited flyover is now complete declared as the longest flyover in the mindanao. The Tagumeños is as excited as ever! The Dubai in the mindanao will finally be over.';
 
     return builContainer(
       Row(
@@ -56,6 +56,7 @@ class UpdatesContainer extends StatelessWidget {
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.left,
+                  style: const TextStyle(fontFamily: 'Inter', fontSize: 13),
                 ),
                 Container(
                   alignment: Alignment.topLeft,
@@ -71,16 +72,16 @@ class UpdatesContainer extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 7, right: 5, bottom: 5),
+            margin: const EdgeInsets.only(top: 7, right: 7, bottom: 7),
             child: ClipRRect(
               borderRadius: const BorderRadius.all(
-                Radius.circular(25),
+                Radius.circular(15),
               ),
               child: Image.asset(
                 'lib/assets/images/Tagum-Flyover.jpeg',
                 fit: BoxFit.cover,
                 height: 155,
-                width: 155,
+                width: 153,
               ),
             ),
           ),

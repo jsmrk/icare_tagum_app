@@ -30,7 +30,7 @@ class HomeLatestNews extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 15),
                 child: Text(
                   'Latest News',
-                  style: Theme.of(context).textTheme.titleMedium,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
               Container(

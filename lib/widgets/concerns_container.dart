@@ -7,18 +7,18 @@ class UserConcerns extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(7),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.3),
             blurRadius: 5.0,
-            offset: const Offset(3, 3),
+            offset: const Offset(1, 1),
           ),
         ],
       ),
       margin: const EdgeInsets.symmetric(
         vertical: 5,
-        horizontal: 15,
+        horizontal: 9,
       ),
       child: child,
     );
@@ -66,8 +66,8 @@ class UserConcerns extends StatelessWidget {
               ),
               ClipRRect(
                 borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(25),
-                  bottomRight: Radius.circular(25),
+                  topRight: Radius.circular(7),
+                  bottomRight: Radius.circular(7),
                 ),
                 child: Image.asset(
                   'lib/assets/images/Tagum-Flyover.jpeg',
