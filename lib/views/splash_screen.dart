@@ -10,7 +10,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        await Navigator.pushNamed(context, NicknameScreen.routeName);
+        await Navigator.pushReplacementNamed(context, NicknameScreen.routeName);
       },
       child: Scaffold(
         body: Container(

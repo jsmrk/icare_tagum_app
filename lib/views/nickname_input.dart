@@ -83,10 +83,9 @@ class NicknameScreen extends StatelessWidget {
           ButtonWithoutIcon(
               onTap: () {
                 saveNickname();
-                Navigator.pushNamed(context, WelcomeScreen.routeName);
+                Navigator.pushReplacementNamed(
+                    context, WelcomeScreen.routeName);
               },
-
-              // Navigator.pushReplacementNamed(context, WelcomeScreen.routeName),
               bgColor: Colors.green,
               buttonText: 'Continue',
               curvedSize: 25,
