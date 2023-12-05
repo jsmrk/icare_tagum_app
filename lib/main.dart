@@ -6,7 +6,7 @@ import 'package:icare_tagum_app/views/welcom_screen.dart';
 import 'package:icare_tagum_app/views/write_screen.dart';
 import 'package:icare_tagum_app/widgets/btm_navbar.dart';
 
-//THIS COMMIT IS PURE STATIC APP
+//THIS COMMIT IS PURE STATIC APPP
 
 void main() {
   runApp(const MyApp());
