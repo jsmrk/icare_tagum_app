@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icare_tagum_app/Services/concern_services.dart';
-import 'package:icare_tagum_app/views/home_screen.dart';
 import 'package:icare_tagum_app/widgets/btm_navbar.dart';
 
 import '../Services/nickname_services.dart';
@@ -8,7 +6,8 @@ import '../widgets/button_no_icon.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const routeName = '/welcome-screen';
-  const WelcomeScreen({super.key});
+  final nickname = Nickname().readNickname();
+  WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   TextSpan(
                     //this code is call the nickname
-                    text: Nickname().readNickname().toString(),
+                    text: nickname,
                     style: const TextStyle(
                       fontWeight: FontWeight.w900,
                       color: Colors.green,
@@ -68,8 +67,7 @@ class WelcomeScreen extends StatelessWidget {
             const SizedBox(height: 65),
             //button
             ButtonWithoutIcon(
-                onTap: () => Navigator.pushReplacementNamed(
-                    context, BtmNavBar.routeName),
+                onTap: () => Navigator.pushNamed(context, BtmNavBar.routeName),
                 bgColor: Colors.green,
                 buttonText: 'Continue',
                 curvedSize: 25,

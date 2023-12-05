@@ -15,7 +15,7 @@ class WriteScreen extends StatelessWidget {
       body: Column(
         children: [
           Stack(children: [
-            const CustomAppBar(appbarHeight: 275),
+            CustomAppBar(appbarHeight: 275),
             const Positioned(
               top: 95,
               left: 17,

@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           Stack(
             children: [
-              const CustomAppBar(appbarHeight: 301),
+              CustomAppBar(appbarHeight: 301),
               const Positioned(
                 top: 85,
                 left: 61,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:icare_tagum_app/views/home_screen.dart';
-import 'package:icare_tagum_app/views/nickname_input.dart';
 import 'package:icare_tagum_app/views/write_screen.dart';
 
 import '../views/updates_screen.dart';

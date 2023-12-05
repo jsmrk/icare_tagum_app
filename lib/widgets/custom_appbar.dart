@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../Services/concern_services.dart';
 import '../Services/nickname_services.dart';
 
 class CustomAppBar extends StatelessWidget {
+  final nickname = Nickname();
   final double appbarHeight;
-  const CustomAppBar({required this.appbarHeight, super.key});
+
+  CustomAppBar({required this.appbarHeight, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class CustomAppBar extends StatelessWidget {
                       ),
                       const SizedBox(width: 15),
                       Text(
-                        Nickname().readNickname().toString(),
+                        nickname.readNickname(),
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 17,

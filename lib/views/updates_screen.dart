@@ -13,7 +13,7 @@ class UpdatesScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const Stack(
+          Stack(
             children: [
               CustomAppBar(appbarHeight: 175),
               Positioned(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icare_tagum_app/Services/concern_services.dart';
 import 'package:icare_tagum_app/views/welcom_screen.dart';
 import 'package:icare_tagum_app/widgets/button_no_icon.dart';
 
@@ -8,7 +7,19 @@ import '../Services/nickname_services.dart';
 class NicknameScreen extends StatelessWidget {
   static const routeName = '/nickname-screen';
   final nicknameController = TextEditingController();
+  final nickname = Nickname();
   NicknameScreen({super.key});
+
+  void saveNickname() {
+    String nickname = nicknameController.text;
+    if (nickname.isEmpty) {
+      // Handle empty nickname case
+      print("Nickname cannot be empty");
+    } else {
+      // Write nickname to storage
+      Nickname().writeNickname(nickname);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,10 +82,10 @@ class NicknameScreen extends StatelessWidget {
           //button
           ButtonWithoutIcon(
               onTap: () {
-                Nickname().writeNickname(nicknameController.text);
-                Navigator.pushReplacementNamed(
-                    context, WelcomeScreen.routeName);
+                saveNickname();
+                Navigator.pushNamed(context, WelcomeScreen.routeName);
               },
+
               // Navigator.pushReplacementNamed(context, WelcomeScreen.routeName),
               bgColor: Colors.green,
               buttonText: 'Continue',
