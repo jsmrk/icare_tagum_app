@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:icare_tagum_app/Services/user_concerns_services.dart';
+import 'package:icare_tagum_app/Services/concern_services.dart';
 import 'package:icare_tagum_app/views/welcom_screen.dart';
 import 'package:icare_tagum_app/widgets/button_no_icon.dart';
+
+import '../Services/nickname_services.dart';
 
 class NicknameScreen extends StatelessWidget {
   static const routeName = '/nickname-screen';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../Services/user_concerns_services.dart';
+import '../Services/concern_services.dart';
+import '../Services/nickname_services.dart';
 
 class CustomAppBar extends StatelessWidget {
   final double appbarHeight;
