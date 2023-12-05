@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ButtonWithoutIcon extends StatelessWidget {
-  final void Function() navigateTo;
+  final void Function() onTap;
   final Color bgColor;
   final Color txtColor;
   final double curvedSize;
@@ -9,7 +9,7 @@ class ButtonWithoutIcon extends StatelessWidget {
 
   const ButtonWithoutIcon({
     super.key,
-    required this.navigateTo,
+    required this.onTap,
     required this.bgColor,
     required this.buttonText,
     required this.curvedSize,
@@ -19,7 +19,7 @@ class ButtonWithoutIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: navigateTo,
+      onTap: onTap,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(curvedSize),
         child: Container(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icare_tagum_app/Services/user_concerns_services.dart';
 import 'package:icare_tagum_app/views/home_screen.dart';
 import 'package:icare_tagum_app/widgets/btm_navbar.dart';
 
@@ -21,10 +22,24 @@ class WelcomeScreen extends StatelessWidget {
             Image.asset('lib/assets/images/logo.png', scale: 11),
             const SizedBox(height: 55),
             //Text
-            Text(
-              'Welcome to iCare, Jess Mark',
-              style: Theme.of(context).textTheme.titleMedium,
-              textAlign: TextAlign.center,
+            RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'Welcom to iCare, ',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  TextSpan(
+                    //this code is call the nickname
+                    text: Nickname().readNickname().toString(),
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w900,
+                      color: Colors.green,
+                      fontSize: 17,
+                    ),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 15),
             RichText(
@@ -39,7 +54,7 @@ class WelcomeScreen extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
                       color: Colors.green,
-                      fontSize: 17,
+                      fontSize: 21,
                     ),
                   ),
                   TextSpan(
@@ -52,7 +67,7 @@ class WelcomeScreen extends StatelessWidget {
             const SizedBox(height: 65),
             //button
             ButtonWithoutIcon(
-                navigateTo: () => Navigator.pushReplacementNamed(
+                onTap: () => Navigator.pushReplacementNamed(
                     context, BtmNavBar.routeName),
                 bgColor: Colors.green,
                 buttonText: 'Continue',

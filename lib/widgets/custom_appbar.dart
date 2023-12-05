@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Services/user_concerns_services.dart';
+
 class CustomAppBar extends StatelessWidget {
   final double appbarHeight;
   const CustomAppBar({required this.appbarHeight, super.key});
@@ -33,26 +35,26 @@ class CustomAppBar extends StatelessWidget {
                 vertical: 35,
                 horizontal: 11,
               ),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         backgroundImage: NetworkImage(''),
                         radius: 20.0,
                       ),
-                      SizedBox(width: 15), // Add space between avatar and text
+                      const SizedBox(width: 15),
                       Text(
-                        'Hi, Jess Mark',
-                        style: TextStyle(
+                        Nickname().readNickname().toString(),
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 17,
                         ),
                       ),
                     ],
                   ),
-                  IconButton(
+                  const IconButton(
                     icon: Icon(Icons.logout, color: Colors.white),
                     onPressed: null,
                   ),

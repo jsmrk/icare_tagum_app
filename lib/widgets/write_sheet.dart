@@ -132,14 +132,14 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ButtonWithoutIcon(
-                navigateTo: () => Navigator.pop(context),
+                onTap: () => Navigator.pop(context),
                 bgColor: Colors.grey,
                 buttonText: 'Cancel',
                 curvedSize: 15,
                 txtColor: Colors.white,
               ),
               ButtonWithoutIcon(
-                navigateTo: () => Navigator.pop(context),
+                onTap: () => Navigator.pop(context),
                 bgColor: Colors.green,
                 buttonText: 'Confirm',
                 curvedSize: 15,

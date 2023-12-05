@@ -1,4 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:icare_tagum_app/firebase_options.dart';
 import 'package:icare_tagum_app/views/home_screen.dart';
 import 'package:icare_tagum_app/views/nickname_input.dart';
 import 'package:icare_tagum_app/views/splash_screen.dart';
@@ -8,7 +12,18 @@ import 'package:icare_tagum_app/widgets/btm_navbar.dart';
 
 //THIS COMMIT IS PURE STATIC APPP
 
-void main() {
+Future<void> main() async {
+  //init Firebase
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  //initHive
+  await Hive.initFlutter();
+  //openHiveBox
+  await Hive.openBox('nicknameBox');
+  await Hive.openBox('concernIndexBox');
   runApp(const MyApp());
 }
 
@@ -44,7 +59,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         SplashScreen.routeName: (context) => const SplashScreen(),
-        NicknameScreen.routeName: (context) => const NicknameScreen(),
+        NicknameScreen.routeName: (context) => NicknameScreen(),
         WelcomeScreen.routeName: (context) => const WelcomeScreen(),
         BtmNavBar.routeName: (context) => const BtmNavBar(),
         HomeScreen.routeName: (context) => const HomeScreen(),

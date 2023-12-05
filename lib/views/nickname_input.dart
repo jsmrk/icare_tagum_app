@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:icare_tagum_app/Services/user_concerns_services.dart';
 import 'package:icare_tagum_app/views/welcom_screen.dart';
 import 'package:icare_tagum_app/widgets/button_no_icon.dart';
 
 class NicknameScreen extends StatelessWidget {
   static const routeName = '/nickname-screen';
-  const NicknameScreen({super.key});
+  final nicknameController = TextEditingController();
+  NicknameScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +38,7 @@ class NicknameScreen extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 37),
             child: TextField(
+              controller: nicknameController,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.all(15),
                 prefixIcon: const Icon(
@@ -65,8 +68,12 @@ class NicknameScreen extends StatelessWidget {
           const SizedBox(height: 99),
           //button
           ButtonWithoutIcon(
-              navigateTo: () => Navigator.pushReplacementNamed(
-                  context, WelcomeScreen.routeName),
+              onTap: () {
+                Nickname().writeNickname(nicknameController.text);
+                Navigator.pushReplacementNamed(
+                    context, WelcomeScreen.routeName);
+              },
+              // Navigator.pushReplacementNamed(context, WelcomeScreen.routeName),
               bgColor: Colors.green,
               buttonText: 'Continue',
               curvedSize: 25,
