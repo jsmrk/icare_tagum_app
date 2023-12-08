@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import '../Services/nickname_services.dart';
 import '../models/user_concern_model.dart';
 import '../widgets/button_with_icon.dart';
+import 'concern_view.dart';
 
 class WriteScreen extends StatelessWidget {
   static const routeName = '/write-screen';
@@ -38,6 +39,8 @@ class WriteScreen extends StatelessWidget {
               }
 
               final concern = Concern(
+                status: data['status'],
+                department: data['department'],
                 imageURLs: imageURLs,
                 urgency: data['urgency'],
                 title: data['title'],
@@ -118,9 +121,7 @@ class WriteScreen extends StatelessWidget {
                   ),
                 ),
                 const Divider(
-                  thickness: .7,
-                  indent: 15,
-                  endIndent: 15,
+                  thickness: .5,
                 ),
                 StreamBuilder<List<Concern>>(
                   stream: readConcerns(),
@@ -138,10 +139,22 @@ class WriteScreen extends StatelessWidget {
                             children: concerns
                                 .map(
                                   (concern) => UserConcerns(
-                                      title: concern.title,
-                                      description: concern.description,
-                                      imageURL: concern.imageURLs![0],
-                                      concernDetails: () {}),
+                                    title: concern.title,
+                                    description: concern.description,
+                                    imageURL: concern.imageURLs![0],
+                                    concernDetails: () => showModalBottomSheet(
+                                        backgroundColor: Colors.white,
+                                        enableDrag: true,
+                                        isScrollControlled: true,
+                                        shape: const RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.vertical(
+                                            top: Radius.circular(19),
+                                          ),
+                                        ),
+                                        context: context,
+                                        builder: (context) =>
+                                            ViewConcern(concern)),
+                                  ),
                                 )
                                 .toList(),
                           ),

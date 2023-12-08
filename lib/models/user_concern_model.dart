@@ -1,5 +1,7 @@
 class Concern {
   final DateTime dateTime;
+  final String status;
+  final String department;
   final String urgency;
   final String title;
   final String description;
@@ -7,6 +9,8 @@ class Concern {
   final List<String>? imageURLs;
 
   Concern({
+    required this.department,
+    required this.status,
     required this.dateTime,
     required this.urgency,
     required this.title,

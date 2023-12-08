@@ -34,6 +34,8 @@ class ReadConcern {
       'datetime': DateTime.now(),
       'urgency': urgency,
       'imageURL': imageURLs,
+      'status': 'Pending',
+      'department': 'Not Yet Assigned',
     };
     await docUser.set(json);
 
@@ -55,6 +57,4 @@ class ReadConcern {
     var box = await Hive.openBox('indexBox');
     await box.put('index', _index);
   }
-
-  static fromJson(Map<String, dynamic> data) {}
 }

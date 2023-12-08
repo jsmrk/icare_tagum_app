@@ -44,13 +44,14 @@ class UserConcerns extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: const EdgeInsets.all(7),
+                padding: const EdgeInsets.all(11),
                 width: 235,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
                       alignment: Alignment.topLeft,
+                      padding: const EdgeInsets.only(bottom: 9),
                       child: Text(
                         title,
                         style: Theme.of(context).textTheme.titleMedium,
@@ -59,13 +60,18 @@ class UserConcerns extends StatelessWidget {
                         textAlign: TextAlign.left,
                       ),
                     ),
-                    Text(
-                      description,
-                      softWrap: true,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.left,
-                      style: const TextStyle(fontFamily: 'Inter', fontSize: 13),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      padding: const EdgeInsets.only(left: 3),
+                      child: Text(
+                        description,
+                        softWrap: true,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.left,
+                        style:
+                            const TextStyle(fontFamily: 'Inter', fontSize: 13),
+                      ),
                     ),
                   ],
                 ),
