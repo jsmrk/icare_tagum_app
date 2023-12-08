@@ -6,7 +6,7 @@ import 'nickname_services.dart';
 class ReadConcern {
   int _index = 0;
 
-  Future addUsername({
+  Future addConcern({
     required String urgency,
     required String title,
     required String description,
