@@ -16,7 +16,7 @@ class UpdatesScreen extends StatelessWidget {
           Stack(
             children: [
               CustomAppBar(appbarHeight: 175),
-              Positioned(
+              const Positioned(
                 top: 99,
                 left: 23,
                 child: Text(

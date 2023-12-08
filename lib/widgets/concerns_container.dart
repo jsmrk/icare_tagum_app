@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 class UserConcerns extends StatelessWidget {
-  UserConcerns({super.key});
+  final void Function() concernDetails;
+  final String title;
+  final String description;
+  final String imageURL;
+  const UserConcerns(
+      {required this.title,
+      required this.description,
+      required this.imageURL,
+      required this.concernDetails,
+      super.key});
 
   Widget builContainer(Widget child) {
     return Container(
@@ -26,28 +35,24 @@ class UserConcerns extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String concernDescription =
-        'Naunsa naman ning tagum mura namag dubai, aksyoni intawn ni ninyo City Government kay abog jud kaayo muagi sa Highway.';
-
     return GestureDetector(
-      onTap: null,
+      onTap: concernDetails,
       child: builContainer(
-        Container(
+        SizedBox(
           height: 105,
-          width: double.infinity,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 padding: const EdgeInsets.all(15),
-                width: 245,
+                width: 235,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Container(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        'Tagum Murag Dubai',
+                        title,
                         style: Theme.of(context).textTheme.titleMedium,
                         softWrap: true,
                         overflow: TextOverflow.ellipsis,
@@ -55,7 +60,7 @@ class UserConcerns extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      concernDescription,
+                      description,
                       softWrap: true,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
@@ -70,11 +75,11 @@ class UserConcerns extends StatelessWidget {
                   topRight: Radius.circular(7),
                   bottomRight: Radius.circular(7),
                 ),
-                child: Image.asset(
-                  'lib/assets/images/Tagum-Flyover.jpeg',
+                child: Image.network(
+                  imageURL,
                   fit: BoxFit.cover,
                   height: 105,
-                  width: 105,
+                  width: 115,
                 ),
               ),
             ],

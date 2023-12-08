@@ -1,31 +1,17 @@
-// ignore_for_file: constant_identifier_names
-
-enum Urgency {
-  High,
-  Low,
-}
-
-enum ConcernStatus {
-  Pending,
-  Viewed,
-}
-
-class UserConcerns {
-  final String id;
+class Concern {
+  final DateTime dateTime;
+  final String urgency;
   final String title;
   final String description;
-  final String imagePath;
-  final Urgency urgency;
-  final DateTime dateTime;
-  final ConcernStatus concernStatus;
+  final String location;
+  final List<String>? imageURLs;
 
-  const UserConcerns({
-    required this.id,
+  Concern({
+    required this.dateTime,
+    required this.urgency,
     required this.title,
     required this.description,
-    required this.imagePath,
-    required this.urgency,
-    required this.dateTime,
-    required this.concernStatus,
+    required this.location,
+    required this.imageURLs,
   });
 }
