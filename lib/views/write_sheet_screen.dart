@@ -23,6 +23,7 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
   final descriptionController = TextEditingController();
   final locationController = TextEditingController();
   final readConcern = ReadConcern();
+  int _currentImageIndex = 0;
 
   List<File> selectedImages = [];
   final picker = ImagePicker();
@@ -82,6 +83,66 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
     }
   }
 
+  Widget displaySelectedImages() {
+    return SizedBox(
+      height: 165,
+      width: 355,
+      child: selectedImages.isEmpty
+          ? const Center(child: Icon(Icons.image_rounded))
+          : Stack(
+              children: [
+                // PageView for sliding images
+                PageView.builder(
+                  itemCount: selectedImages.length,
+                  scrollDirection: Axis.horizontal,
+                  onPageChanged: (int newPageIndex) {
+                    setState(() {
+                      _currentImageIndex = newPageIndex;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      child: kIsWeb
+                          ? Image.network(
+                              selectedImages[index].path,
+                              fit: BoxFit.cover,
+                            )
+                          : Image.file(selectedImages[index],
+                              fit: BoxFit.cover),
+                    );
+                  },
+                ),
+
+                // Dots for multiple images
+                if (selectedImages.length > 1)
+                  Positioned(
+                    bottom: 11,
+                    left: 0,
+                    right: 0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        selectedImages.length,
+                        (index) => Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
+                          width: 11,
+                          height: 11,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: index == _currentImageIndex
+                                ? Colors.green
+                                : Colors.grey,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -89,28 +150,7 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
-            height: 165,
-            width: 350,
-            child: selectedImages.isEmpty
-                ? const Center(
-                    child: Text('No Image is Selected'),
-                  )
-                : GridView.builder(
-                    itemCount: selectedImages.length,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: selectedImages.length,
-                    ),
-                    itemBuilder: (BuildContext context, int index) {
-                      return Center(
-                        child: kIsWeb
-                            ? Image.network(selectedImages[index].path)
-                            : Image.file(selectedImages[index]),
-                      );
-                    },
-                  ),
-          ),
-          const SizedBox(height: 5),
+          if (selectedImages.length > 0) displaySelectedImages(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
