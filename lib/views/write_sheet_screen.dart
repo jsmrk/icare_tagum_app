@@ -85,8 +85,8 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
 
   Widget displaySelectedImages() {
     return SizedBox(
-      height: 165,
-      width: 355,
+      height: 225,
+      width: 365,
       child: selectedImages.isEmpty
           ? const Center(child: Icon(Icons.image_rounded))
           : Stack(
@@ -102,15 +102,21 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
                   },
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      child: kIsWeb
-                          ? Image.network(
-                              selectedImages[index].path,
-                              fit: BoxFit.cover,
-                            )
-                          : Image.file(selectedImages[index],
-                              fit: BoxFit.cover),
-                    );
+                        margin: const EdgeInsets.symmetric(horizontal: 1),
+                        child: kIsWeb
+                            ? ClipRRect(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(15)),
+                                child: Image.network(
+                                  selectedImages[index].path,
+                                  fit: BoxFit.cover,
+                                ))
+                            : ClipRRect(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(15)),
+                                child: Image.file(selectedImages[index],
+                                    fit: BoxFit.cover),
+                              ));
                   },
                 ),
 
@@ -145,190 +151,192 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(19),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (selectedImages.length > 0) displaySelectedImages(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Urgency: ',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  const SizedBox(width: 15),
-                  DropdownButton<String>(
-                    value: _selectedUrgency,
-                    items: urgency.map((item) {
-                      return DropdownMenuItem<String>(
-                        value: item,
-                        child: Text(item),
-                      );
-                    }).toList(),
-                    onChanged: (item) {
-                      setState(() {
-                        _selectedUrgency = item!;
-                      });
-                    },
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  const Icon(Icons.add_photo_alternate),
-                  TextButton(
-                      onPressed: getImages,
-                      child: const Text(
-                        'Add Image',
-                        style: TextStyle(color: Colors.black, fontSize: 15),
-                      ))
-                ],
-              ),
-              // IconButton(
-              //   onPressed: getImages,
-              //   icon: const Icon(Icons.add_photo_alternate),
-              //   iconSize: 35,
-              // ),
-            ],
-          ),
-          const SizedBox(height: 5),
-          TextField(
-            controller: titleController,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(
-                Icons.title,
-                color: Colors.grey,
-              ),
-              contentPadding: const EdgeInsets.all(15),
-              hintText: 'Title',
-              hintStyle: const TextStyle(
-                  color: Colors.grey,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w500),
-              enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Colors.grey),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
-                borderSide: const BorderSide(
-                  color: Colors.green,
-                  width: 1.9,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 15),
-          TextFormField(
-            controller: descriptionController,
-            maxLines: 7,
-            keyboardType: TextInputType.multiline,
-            decoration: const InputDecoration(
-              hintText: 'Write Report Description',
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(15),
-                ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(15),
-                ),
-                borderSide: BorderSide(
-                    color: Colors.grey,
-                    width: 3.0), // Thicker border when focused
-              ),
-            ),
-          ),
-          const SizedBox(height: 15),
-          TextField(
-            controller: locationController,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(
-                Icons.location_pin,
-                color: Colors.grey,
-              ),
-              contentPadding: const EdgeInsets.all(15),
-              hintText: 'Location',
-              hintStyle: const TextStyle(
-                  color: Colors.grey,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w500),
-              enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Colors.grey),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
-                borderSide: const BorderSide(
-                  color: Colors.green,
-                  width: 1.9,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 25),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ButtonWithoutIcon(
-                onTap: () => Navigator.pop(context),
-                bgColor: Colors.grey,
-                buttonText: 'Cancel',
-                curvedSize: 15,
-                txtColor: Colors.white,
-              ),
-              ButtonWithoutIcon(
-                onTap: () async {
-                  // Ask for confirmation
-                  bool confirm = await showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: const Text('Confirm Add Concern'),
-                      content: const Text(
-                          'Are you sure you want to add this concern?'),
-                      actions: [
-                        TextButton(
-                          onPressed: () =>
-                              Navigator.pop(context, false), // Cancel
-                          child: const Text('Cancel'),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context, true); // Confirm
-
-                            // Show circular progress indicator
-                            showDialog(
-                              context: context,
-                              barrierDismissible: false,
-                              builder: (context) => const Center(
-                                child: CircularProgressIndicator(),
-                              ),
-                            );
-                          },
-                          child: const Text('Confirm'),
-                        ),
-                      ],
+    return SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsets.only(
+          top: 15,
+          left: 15,
+          right: 15,
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (selectedImages.length > 0) displaySelectedImages(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Urgency: ',
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
-                  );
-
-                  if (confirm) {
-                    uploadConcern();
-                  }
-                },
-                bgColor: Colors.green,
-                buttonText: 'Confirm',
-                curvedSize: 15,
-                txtColor: Colors.white,
+                    const SizedBox(width: 15),
+                    DropdownButton<String>(
+                      value: _selectedUrgency,
+                      items: urgency.map((item) {
+                        return DropdownMenuItem<String>(
+                          value: item,
+                          child: Text(item),
+                        );
+                      }).toList(),
+                      onChanged: (item) {
+                        setState(() {
+                          _selectedUrgency = item!;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                GestureDetector(
+                  onTap: getImages,
+                  child: const Row(
+                    children: [
+                      Icon(Icons.add_photo_alternate),
+                      Text(
+                        'Add Image',
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 5),
+            TextField(
+              controller: titleController,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(
+                  Icons.title,
+                  color: Colors.grey,
+                ),
+                contentPadding: const EdgeInsets.all(15),
+                hintText: 'Title',
+                hintStyle: const TextStyle(
+                    color: Colors.grey,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w500),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: const BorderSide(
+                    color: Colors.green,
+                    width: 1.9,
+                  ),
+                ),
               ),
-            ],
-          ),
-          const SizedBox(height: 5),
-        ],
+            ),
+            const SizedBox(height: 15),
+            TextFormField(
+              controller: descriptionController,
+              maxLines: 5,
+              keyboardType: TextInputType.multiline,
+              decoration: const InputDecoration(
+                hintText: 'Write Report Description',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15),
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15),
+                  ),
+                  borderSide: BorderSide(
+                      color: Colors.green,
+                      width: 1.9), // Thicker border when focused
+                ),
+              ),
+            ),
+            const SizedBox(height: 15),
+            TextField(
+              controller: locationController,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(
+                  Icons.location_pin,
+                  color: Colors.grey,
+                ),
+                contentPadding: const EdgeInsets.all(15),
+                hintText: 'Location',
+                hintStyle: const TextStyle(
+                    color: Colors.grey,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w500),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: const BorderSide(
+                    color: Colors.green,
+                    width: 1.9,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 25),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ButtonWithoutIcon(
+                  onTap: () => Navigator.pop(context),
+                  bgColor: Colors.grey,
+                  buttonText: 'Cancel',
+                  curvedSize: 15,
+                  txtColor: Colors.white,
+                ),
+                ButtonWithoutIcon(
+                  onTap: () async {
+                    // Ask for confirmation
+                    bool confirm = await showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('Confirm Add Concern'),
+                        content: const Text(
+                            'Are you sure you want to add this concern?'),
+                        actions: [
+                          TextButton(
+                            onPressed: () =>
+                                Navigator.pop(context, false), // Cancel
+                            child: const Text('Cancel'),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context, true); // Confirm
+
+                              // Show circular progress indicator
+                              showDialog(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (context) => const Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                              );
+                            },
+                            child: const Text('Confirm'),
+                          ),
+                        ],
+                      ),
+                    );
+
+                    if (confirm) {
+                      uploadConcern();
+                    }
+                  },
+                  bgColor: Colors.green,
+                  buttonText: 'Confirm',
+                  curvedSize: 15,
+                  txtColor: Colors.white,
+                ),
+              ],
+            ),
+            const SizedBox(height: 15),
+          ],
+        ),
       ),
     );
   }
