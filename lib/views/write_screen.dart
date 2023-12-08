@@ -49,72 +49,6 @@ class WriteScreen extends StatelessWidget {
             }).toList());
   }
 
-  String getFormattedDate(Concern concern) {
-    final dateTime = concern.dateTime;
-    final formatter = DateFormat('yyyy-MM-dd'); // Customize format as needed
-    return formatter.format(dateTime);
-  }
-
-  String getFormattedTime(Concern concern) {
-    final dateTime = concern.dateTime;
-    final formatter = DateFormat('h:mm a'); // Customize format as needed
-    return formatter.format(dateTime);
-  }
-
-  Widget buildConcern(BuildContext context, Concern concern) {
-    return Container(
-      alignment: Alignment.center,
-      child: Column(
-        children: [
-          UserConcerns(
-              title: concern.title,
-              description: concern.description,
-              imageURL: concern.imageURLs![0],
-              concernDetails: () {})
-          // for (final imageUrl in concern.imageURLs!) Image.network(imageUrl),
-          //   onPressed: () => showModalBottomSheet(
-          //     context: context,
-          //     builder: (context) => null,
-          //     // builder: (context) => ConcernBottomSheet(concern),
-          //   ),
-          //   icon: const Icon(
-          //     Icons.read_more,
-          //     size: 55,
-          //   ),
-          // )
-        ],
-      ),
-    );
-  }
-  //   Widget buildConcern(BuildContext context, Concern concern) {
-  //   return Container(
-  //     margin: const EdgeInsets.all(31),
-  //     alignment: Alignment.center,
-  //     child: Column(
-  //       children: [
-  //         for (final imageUrl in concern.imageURLs!) Image.network(imageUrl),
-  //         Text(concern.urgency),
-  //         Text(concern.title),
-  //         Text(concern.description),
-  //         Text(concern.location),
-  //         Text(getFormattedDate(concern)),
-  //         Text(getFormattedTime(concern)),
-  //         // IconButton(
-  //         //   onPressed: () => showModalBottomSheet(
-  //         //     context: context,
-  //         //     builder: (context) => null,
-  //         //     // builder: (context) => ConcernBottomSheet(concern),
-  //         //   ),
-  //         //   icon: const Icon(
-  //         //     Icons.read_more,
-  //         //     size: 55,
-  //         //   ),
-  //         // )
-  //       ],
-  //     ),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,7 +96,9 @@ class WriteScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25),
+              ),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.5),
@@ -174,45 +110,49 @@ class WriteScreen extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.only(top: 9, left: 15),
+                  padding: const EdgeInsets.only(top: 15, left: 15, bottom: 3),
                   alignment: Alignment.topLeft,
                   child: Text(
                     'Your Concerns',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
-                const Divider(height: 15),
-                SingleChildScrollView(
-                  child: SizedBox(
-                    height: 415,
-                    child: StreamBuilder<List<Concern>>(
-                      stream: readConcerns(),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasError) {
-                          // print('Error Here:');
-                          // print(snapshot.error);
-                          // print('Error Here:');
-                          return const Text('An error occured!');
-                        } else if (snapshot.hasData) {
-                          final concerns =
-                              snapshot.data!; // Use plural 'concerns'
-                          if (concerns.isEmpty) {
-                            return const Center(
-                                child: Text('No concerns found'));
-                          } else {
-                            return ListView(
-                              children: concerns
-                                  .map((concern) =>
-                                      buildConcern(context, concern))
-                                  .toList(),
-                            );
-                          }
-                        } else {
-                          return const CircularProgressIndicator();
-                        }
-                      },
-                    ),
-                  ),
+                const Divider(
+                  thickness: .7,
+                  indent: 15,
+                  endIndent: 15,
+                ),
+                StreamBuilder<List<Concern>>(
+                  stream: readConcerns(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) {
+                      return const Text('An error occured!');
+                    } else if (snapshot.hasData) {
+                      final concerns = snapshot.data!;
+                      if (concerns.isEmpty) {
+                        return const Center(child: Text('No concerns found'));
+                      } else {
+                        return Flexible(
+                          child: ListView(
+                            padding: const EdgeInsets.only(top: 3),
+                            children: concerns
+                                .map(
+                                  (concern) => UserConcerns(
+                                      title: concern.title,
+                                      description: concern.description,
+                                      imageURL: concern.imageURLs![0],
+                                      concernDetails: () {}),
+                                )
+                                .toList(),
+                          ),
+                        );
+                      }
+                    } else {
+                      return const CircularProgressIndicator(
+                        color: Colors.green,
+                      );
+                    }
+                  },
                 ),
               ],
             ),

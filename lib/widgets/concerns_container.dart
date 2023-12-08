@@ -12,7 +12,7 @@ class UserConcerns extends StatelessWidget {
       required this.concernDetails,
       super.key});
 
-  Widget builContainer(Widget child) {
+  Widget buildContainer(Widget child) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -37,14 +37,14 @@ class UserConcerns extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: concernDetails,
-      child: builContainer(
+      child: buildContainer(
         SizedBox(
           height: 105,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.all(7),
                 width: 235,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
