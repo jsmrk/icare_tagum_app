@@ -154,7 +154,7 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
     return SingleChildScrollView(
       child: Container(
         padding: EdgeInsets.only(
-          top: 15,
+          top: 11,
           left: 15,
           right: 15,
           bottom: MediaQuery.of(context).viewInsets.bottom,
@@ -162,7 +162,14 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (selectedImages.length > 0) displaySelectedImages(),
+            const Text(
+              '▔▔▔▔',
+              style: TextStyle(
+                color: Colors.grey,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
+            if (selectedImages.isNotEmpty) displaySelectedImages(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
