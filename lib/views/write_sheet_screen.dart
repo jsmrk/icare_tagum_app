@@ -19,6 +19,7 @@ class WriteConcernSheet extends StatefulWidget {
 class _WriteConcernSheetState extends State<WriteConcernSheet> {
   String _selectedUrgency = 'Low';
   List<String> urgency = ['Low', 'High'];
+
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
   final locationController = TextEditingController();
@@ -169,7 +170,7 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
                 fontWeight: FontWeight.w900,
               ),
             ),
-            if (selectedImages.isNotEmpty) displaySelectedImages(),
+            selectedImages.isNotEmpty ? displaySelectedImages() : Container(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

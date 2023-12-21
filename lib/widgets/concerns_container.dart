@@ -70,7 +70,7 @@ class UserConcerns extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.left,
                         style:
-                            const TextStyle(fontFamily: 'Inter', fontSize: 13),
+                            const TextStyle(fontFamily: 'Inter', fontSize: 11),
                       ),
                     ),
                   ],

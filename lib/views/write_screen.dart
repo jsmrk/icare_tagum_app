@@ -20,10 +20,10 @@ class WriteScreen extends StatelessWidget {
 
   Stream<List<Concern>> readConcerns() {
     return FirebaseFirestore.instance
-        .collection('nickname')
-        .doc(nickname())
-        .collection('concern')
-        .orderBy('datetime', descending: true)
+        .collection('concerns') // Access the top-level 'concerns' collection
+        .where('nickname',
+            isEqualTo:
+                nickname()) // Apply the filter// Maintain descending order
         .snapshots()
         .map((snapshot) => snapshot.docs.map((doc) {
               final data = doc.data();

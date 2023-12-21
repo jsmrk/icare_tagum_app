@@ -17,7 +17,7 @@ class UpdatesScreen extends StatelessWidget {
             children: [
               CustomAppBar(appbarHeight: 175),
               const Positioned(
-                top: 99,
+                top: 109,
                 left: 23,
                 child: Text(
                   "Government Updates",

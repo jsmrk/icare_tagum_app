@@ -34,7 +34,7 @@ class CustomAppBar extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.symmetric(
-                vertical: 35,
+                vertical: 55,
                 horizontal: 11,
               ),
               child: Row(

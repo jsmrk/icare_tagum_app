@@ -21,13 +21,10 @@ class ReadConcern {
       return Nickname().readNickname();
     }
 
-    final docUser = FirebaseFirestore.instance
-        .collection('nickname')
-        .doc(nickname())
-        .collection('concern')
-        .doc(_index.toString());
+    final docUser = FirebaseFirestore.instance.collection('concerns').doc();
 
     final json = {
+      'nickname': nickname(),
       'title': title,
       'description': description,
       'location': location,
