@@ -157,7 +157,7 @@ class _ViewConcernState extends State<ViewConcern> {
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        smallDetails('Status :   ', widget.concern.department),
+                        smallDetails('Date :   ', widget.concern.department),
                         smallDetails('', getFormattedTime(widget.concern)),
                       ]),
                   smallDetails('Urgency :   ', widget.concern.urgency),
@@ -187,6 +187,5 @@ class _ViewConcernState extends State<ViewConcern> {
         ),
       ),
     );
-    ;
   }
 }

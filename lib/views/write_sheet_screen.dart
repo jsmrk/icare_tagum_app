@@ -321,7 +321,9 @@ class _WriteConcernSheetState extends State<WriteConcernSheet> {
                                 context: context,
                                 barrierDismissible: false,
                                 builder: (context) => const Center(
-                                  child: CircularProgressIndicator(),
+                                  child: CircularProgressIndicator(
+                                    color: Colors.green,
+                                  ),
                                 ),
                               );
                             },
