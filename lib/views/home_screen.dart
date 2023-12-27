@@ -13,6 +13,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<List<int>> getConcernCounts() async {
+      final snapshot =
+          await FirebaseFirestore.instance.collection('concerns').get();
+
+      final totalCount = snapshot.docs.length;
+      final viewedCount =
+          snapshot.docs.where((doc) => doc.get('status') == 'Viewed').length;
+
+      return [totalCount, viewedCount];
+    }
+
     return Scaffold(
       body: Column(
         children: [
@@ -67,41 +78,57 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              '11',
-                              style: TextStyle(
-                                fontFamily: 'Inter',
-                                fontSize: 55,
-                                fontWeight: FontWeight.w700,
+                    FutureBuilder<List<int>>(
+                      future: getConcernCounts(), // Fetch the counts
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          final totalCount = snapshot.data![0];
+                          final viewedCount = snapshot.data![1];
+
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    totalCount.toString(),
+                                    style: const TextStyle(
+                                      fontFamily: 'Inter',
+                                      fontSize: 55,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 5),
+                                  const Text(
+                                    'Reports\nReceived',
+                                    style: TextStyle(fontFamily: 'Inter'),
+                                  ),
+                                ],
                               ),
-                            ),
-                            SizedBox(width: 5),
-                            Text(
-                              'Reports\nReceived',
-                              style: TextStyle(fontFamily: 'Inter'),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              '09',
-                              style: TextStyle(
-                                fontFamily: 'Inter',
-                                fontSize: 51,
-                                fontWeight: FontWeight.w700,
+                              Row(
+                                children: [
+                                  Text(
+                                    viewedCount.toString(),
+                                    style: const TextStyle(
+                                      fontFamily: 'Inter',
+                                      fontSize: 51,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 5),
+                                  const Text('Reports\nViewed'),
+                                ],
                               ),
-                            ),
-                            SizedBox(width: 5),
-                            Text('Reports\nViewed'),
-                          ],
-                        ),
-                      ],
+                            ],
+                          );
+                        } else if (snapshot.hasError) {
+                          return Text(
+                              'Error loading counts: ${snapshot.error}');
+                        } else {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        }
+                      },
                     ),
                     const SizedBox(
                       height: 21,
