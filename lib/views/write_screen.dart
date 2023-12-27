@@ -94,7 +94,7 @@ class WriteScreen extends StatelessWidget {
             ),
           ]),
           Container(
-            height: 465,
+            height: 485,
             margin: const EdgeInsets.only(top: 9, left: 9, right: 9),
             decoration: BoxDecoration(
               color: Colors.white,
