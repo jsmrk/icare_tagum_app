@@ -1,11 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:icare_tagum_app/views/write_screen.dart';
 import 'package:icare_tagum_app/widgets/button_with_icon.dart';
 import 'package:icare_tagum_app/widgets/custom_appbar.dart';
 import 'package:icare_tagum_app/widgets/home_latest_news.dart';
-
-import '../models/updates_model.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = '/home-screen';
@@ -31,7 +28,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               CustomAppBar(appbarHeight: 301),
               const Positioned(
-                top: 85,
+                top: 95,
                 left: 61,
                 child: Text(
                   "iCare Tagum",
@@ -43,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const Positioned(
-                top: 155,
+                top: 161,
                 left: 121,
                 child: Text(
                   "TAGUM - TAGUMPAY",
@@ -125,8 +122,42 @@ class HomeScreen extends StatelessWidget {
                           return Text(
                               'Error loading counts: ${snapshot.error}');
                         } else {
-                          return const Center(
-                              child: CircularProgressIndicator());
+                          return const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    '0',
+                                    style: TextStyle(
+                                      fontFamily: 'Inter',
+                                      fontSize: 55,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  SizedBox(width: 5),
+                                  Text(
+                                    'Reports\nReceived',
+                                    style: TextStyle(fontFamily: 'Inter'),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    '0',
+                                    style: TextStyle(
+                                      fontFamily: 'Inter',
+                                      fontSize: 51,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  SizedBox(width: 5),
+                                  Text('Reports\nViewed'),
+                                ],
+                              ),
+                            ],
+                          );
                         }
                       },
                     ),
@@ -134,12 +165,10 @@ class HomeScreen extends StatelessWidget {
                       height: 21,
                     ),
                     ButtonWithIcon(
-                      bgColor: const Color(0xff319F43),
-                      iconColor: Colors.white,
-                      txtColor: Colors.white,
-                      onTapFunction: () =>
-                          Navigator.pushNamed(context, WriteScreen.routeName),
-                    ),
+                        bgColor: const Color(0xff319F43),
+                        iconColor: Colors.white,
+                        txtColor: Colors.white,
+                        onTapFunction: () => {})
                   ],
                 ),
               ),

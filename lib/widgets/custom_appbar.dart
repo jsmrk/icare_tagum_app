@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Services/nickname_services.dart';
+import 'package:flutter/services.dart';
 
 class CustomAppBar extends StatelessWidget {
   final nickname = Nickname();
@@ -42,11 +43,18 @@ class CustomAppBar extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const CircleAvatar(
-                        backgroundImage: NetworkImage(''),
+                      const SizedBox(width: 5),
+                      CircleAvatar(
                         radius: 20.0,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(
+                              25), // Match the radius of CircleAvatar
+                          child: Image.asset(
+                            'lib/assets/images/dummy.png',
+                          ),
+                        ),
                       ),
-                      const SizedBox(width: 15),
+                      const SizedBox(width: 11),
                       Text(
                         nickname.readNickname(),
                         style: const TextStyle(
@@ -56,9 +64,9 @@ class CustomAppBar extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const IconButton(
-                    icon: Icon(Icons.logout, color: Colors.white),
-                    onPressed: null,
+                  IconButton(
+                    icon: const Icon(Icons.logout, color: Colors.white),
+                    onPressed: () => SystemNavigator.pop(),
                   ),
                 ],
               ),

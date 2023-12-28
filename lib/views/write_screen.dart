@@ -60,7 +60,7 @@ class WriteScreen extends StatelessWidget {
           Stack(children: [
             CustomAppBar(appbarHeight: 275),
             const Positioned(
-              top: 95,
+              top: 105,
               left: 17,
               child: Text(
                 "Write Your Concerns\nWithout Worries",
@@ -72,7 +72,7 @@ class WriteScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 205,
+              top: 219,
               left: 71,
               child: ButtonWithIcon(
                 bgColor: Colors.white,

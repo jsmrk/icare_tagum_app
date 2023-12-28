@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:icare_tagum_app/Services/auth_page.dart';
 import 'package:icare_tagum_app/firebase_options.dart';
 
 import 'package:icare_tagum_app/views/home_screen.dart';
@@ -61,7 +62,8 @@ class _MyAppState extends State<MyApp> {
             ),
       ),
       routes: {
-        '/': (context) => const SplashScreen(),
+        '/': (context) => const AuthPage(),
+        AuthPage.routeName: (context) => const AuthPage(),
         SplashScreen.routeName: (context) => const SplashScreen(),
         NicknameScreen.routeName: (context) => NicknameScreen(),
         WelcomeScreen.routeName: (context) => WelcomeScreen(),

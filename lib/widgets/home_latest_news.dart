@@ -11,104 +11,104 @@ class HomeLatestNews extends StatefulWidget {
 }
 
 class _HomeLatestNewsState extends State<HomeLatestNews> {
-  @override
-  Widget build(BuildContext context) {
-    int _currentImageIndex = 0;
+  int _currentImageIndex = 0;
 
-    Stream<Updates> readLatestUpdate() {
-      return FirebaseFirestore.instance
-          .collection('updates')
-          .orderBy('datetime',
-              descending: true) // Order by timestamp, latest first
-          .limit(1) // Fetch only the first document
-          .snapshots()
-          .map((snapshot) =>
-              snapshot.docs.first) // Get the first (latest) document
-          .map((doc) {
-        final data = doc.data();
-        final timestamp = data['datetime'];
-        final dateTime = timestamp.toDate();
+  Stream<Updates> readLatestUpdate() {
+    return FirebaseFirestore.instance
+        .collection('updates')
+        .orderBy('datetime',
+            descending: true) // Order by timestamp, latest first
+        .limit(1) // Fetch only the first document
+        .snapshots()
+        .map((snapshot) =>
+            snapshot.docs.first) // Get the first (latest) document
+        .map((doc) {
+      final data = doc.data();
+      final timestamp = data['datetime'];
+      final dateTime = timestamp.toDate();
 
-        List<String>? imageURLs;
-        try {
-          // Check for null or non-list value
-          imageURLs = (data['imageURL'] as List).cast<String>();
-        } catch (error) {
-          print('Error retrieving image URLs: $error');
-        }
+      List<String>? imageURLs;
+      try {
+        // Check for null or non-list value
+        imageURLs = (data['imageURL'] as List).cast<String>();
+      } catch (error) {
+        print('Error retrieving image URLs: $error');
+      }
 
-        return Updates(
-          author: data['author'],
-          imageURLs: imageURLs,
-          title: data['title'],
-          description: data['description'],
-          dateTime: dateTime,
-        );
-      });
-    }
+      return Updates(
+        author: data['author'],
+        imageURLs: imageURLs,
+        title: data['title'],
+        description: data['description'],
+        dateTime: dateTime,
+      );
+    });
+  }
 
-    Widget displayImages(List<String>? imageURLs) {
-      // Accept imageURLs as a parameter
-      return SizedBox(
-        height: 125,
-        width: 365,
-        child: imageURLs == null || imageURLs.isEmpty
-            ? const Center(child: Icon(Icons.image_rounded))
-            : Stack(
-                children: [
-                  // PageView for sliding images
-                  PageView.builder(
-                    itemCount: imageURLs.length,
-                    scrollDirection: Axis.horizontal,
-                    onPageChanged: (int newPageIndex) {
-                      setState(() {
-                        _currentImageIndex = newPageIndex;
-                      });
-                    },
-                    itemBuilder: (context, index) {
-                      return Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 1),
-                        child: ClipRRect(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(15)),
-                          child: Image.network(
-                            imageURLs[
-                                index], // Use imageURLs from function parameter
-                            fit: BoxFit.cover,
-                          ),
+  Widget displayImages(List<String>? imageURLs) {
+    // Accept imageURLs as a parameter
+    return SizedBox(
+      height: 161,
+      width: 365,
+      child: imageURLs == null || imageURLs.isEmpty
+          ? const Center(child: Icon(Icons.image_rounded))
+          : Stack(
+              children: [
+                // PageView for sliding images
+                PageView.builder(
+                  itemCount: imageURLs.length,
+                  scrollDirection: Axis.horizontal,
+                  onPageChanged: (int newPageIndex) {
+                    setState(() {
+                      _currentImageIndex = newPageIndex;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 1),
+                      child: ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(15)),
+                        child: Image.network(
+                          imageURLs[
+                              index], // Use imageURLs from function parameter
+                          fit: BoxFit.cover,
                         ),
-                      );
-                    },
-                  ),
-                  // Dots for multiple images
-                  if (imageURLs.length > 1)
-                    Positioned(
-                      bottom: 11,
-                      left: 0,
-                      right: 0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(
-                          imageURLs.length,
-                          (index) => Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 5),
-                            width: 11,
-                            height: 11,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: index == _currentImageIndex
-                                  ? Colors.green
-                                  : Colors.grey,
-                            ),
+                      ),
+                    );
+                  },
+                ),
+                // Dots for multiple images
+                if (imageURLs.length > 1)
+                  Positioned(
+                    bottom: 11,
+                    left: 0,
+                    right: 0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        imageURLs.length,
+                        (index) => Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
+                          width: 11,
+                          height: 11,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: index == _currentImageIndex
+                                ? Colors.green
+                                : Colors.grey,
                           ),
                         ),
                       ),
                     ),
-                ],
-              ),
-      );
-    }
+                  ),
+              ],
+            ),
+    );
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -177,7 +177,7 @@ class _HomeLatestNewsState extends State<HomeLatestNews> {
                           padding: const EdgeInsets.only(top: 3, bottom: 15),
                           child: Text(
                             latestUpdate.description,
-                            maxLines: 5,
+                            maxLines: 3,
                             overflow: TextOverflow.ellipsis,
                           )),
                     ],
@@ -185,7 +185,10 @@ class _HomeLatestNewsState extends State<HomeLatestNews> {
                 } else if (snapshot.hasError) {
                   return Text('Error loading latest update: ${snapshot.error}');
                 } else {
-                  return const Center(child: CircularProgressIndicator());
+                  return const Center(
+                      child: CircularProgressIndicator(
+                    color: Colors.green,
+                  ));
                 }
               },
             ),

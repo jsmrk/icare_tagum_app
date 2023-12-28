@@ -7,6 +7,7 @@ import '../views/updates_screen.dart';
 
 class BtmNavBar extends StatefulWidget {
   static const routeName = '/btmNavbar-screen';
+
   const BtmNavBar({super.key});
 
   @override

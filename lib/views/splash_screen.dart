@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icare_tagum_app/Services/auth_page.dart';
 import 'package:icare_tagum_app/Services/nickname_services.dart';
 import 'package:icare_tagum_app/views/nickname_input.dart';
 
@@ -10,7 +11,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        await Navigator.pushReplacementNamed(context, NicknameScreen.routeName);
+        await Navigator.pushReplacementNamed(context, AuthPage.routeName);
       },
       child: Scaffold(
         body: Container(
