@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="icare_tagum_app"
+        android:label="iCare Tagum"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
