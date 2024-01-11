@@ -1,5 +1,3 @@
-<img src="https://github.com/jsmrk/icare_tagum_app/assets/119231806/a34a8a48-389b-4352-9681-473bbf0b29e4" width="581" height="301">
-
 # iCare Tagum App
 
 A Mobile app for reporting or submitting the citizens concerns to the Government Office of Tagum City. To improving communication and collaboration between citizens and the Tagum City government. By prioritizing citizen needs and incorporating thoughtful features, it can play a significant role in creating a more responsive and efficient governance system.
