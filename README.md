@@ -1,4 +1,4 @@
-# icare_tagum_app
+# iCare Tagum App
 
 A new Flutter project.
 
