@@ -1,4 +1,4 @@
-![logo](https://github.com/jsmrk/icare_tagum_app/assets/119231806/75733c60-b1d7-4949-a0d6-699b88ca454e)
+<img src="https://github.com/jsmrk/icare_tagum_app/assets/119231806/a34a8a48-389b-4352-9681-473bbf0b29e4" width="581" height="301">
 
 # iCare Tagum App
 
